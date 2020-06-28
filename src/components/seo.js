@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 // TODO: Figure out how to convert this SEO component to typescript
-function SEO({ description, lang, meta, title, link }){
+function SEO({ description, lang, meta, title }){
   const { site } = useStaticQuery(
     graphql`
       query {

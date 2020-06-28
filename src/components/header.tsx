@@ -1,31 +1,45 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core'
-import { Menu } from '@material-ui/icons'
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <Menu />
-        </IconButton>
-        <Typography variant="h6">
-          MyFridge
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
-  </header>
+// Material UI imports
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core"
+import { Menu } from "@material-ui/icons"
+
+const useStyles = makeStyles((theme: Theme) => 
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  })
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
+  const classes = useStyles();
+  return (
+    <header className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <Menu />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            {siteTitle}
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </header>
+  )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+interface HeaderProps {
+  siteTitle: String,
 }
 
 export default Header
