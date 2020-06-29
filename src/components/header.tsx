@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       textDecoration: `none`,
       color: AppToolBarTextColor,
     },
-    loginButton: {
+    signinButton: {
       textTransform: `none`,
     },
   })
@@ -38,8 +38,8 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
           <Link to="/" className={classes.title}>
             <Typography variant="h6">{siteTitle}</Typography>
           </Link>
-          <Button className={classes.loginButton} color="inherit">
-            Login
+          <Button className={classes.signinButton} color="inherit">
+            Sign in
           </Button>
         </Toolbar>
       </AppBar>
