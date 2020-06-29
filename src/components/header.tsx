@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 // Material UI imports
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
@@ -15,6 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
+      textDecoration: `none`,
+      color: `inherit`,
     },
   })
 )
@@ -28,9 +31,11 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <Menu />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            {siteTitle}
-          </Typography>
+          <Link to="/" className={classes.title}>
+            <Typography variant="h6">
+              {siteTitle}
+            </Typography>
+          </Link>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
