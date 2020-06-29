@@ -3,40 +3,44 @@ import { Link } from "gatsby"
 
 // Material UI imports
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core"
-import { Menu } from "@material-ui/icons"
+import { AppBar, Toolbar, Typography, Button } from "@material-ui/core"
 
-const useStyles = makeStyles((theme: Theme) => 
+import {
+  AppToolBarBackgroundColor,
+  AppToolBarTextColor,
+} from "../assets/styles/colors"
+
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
+    toolBar: {
+      backgroundColor: AppToolBarBackgroundColor,
     },
     title: {
       flexGrow: 1,
       textDecoration: `none`,
-      color: `inherit`,
+      color: AppToolBarTextColor,
+    },
+    loginButton: {
+      textTransform: `none`,
     },
   })
 )
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <header className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <Menu />
-          </IconButton>
+        <Toolbar className={classes.toolBar}>
           <Link to="/" className={classes.title}>
-            <Typography variant="h6">
-              {siteTitle}
-            </Typography>
+            <Typography variant="h6">{siteTitle}</Typography>
           </Link>
-          <Button color="inherit">Login</Button>
+          <Button className={classes.loginButton} color="inherit">
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </header>
@@ -44,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
 }
 
 interface HeaderProps {
-  siteTitle: String,
+  siteTitle: String
 }
 
 export default Header
