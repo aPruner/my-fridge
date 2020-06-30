@@ -1,18 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 // Material UI imports
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+
+import Header from './header';
+import './layout.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,10 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: `0 1.0875rem 1.45rem`,
     },
   })
-)
+);
 
 const Layout: React.FC<LayoutProps> = ({ children = [] }: LayoutProps) => {
-  const classes = useStyles()
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -34,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children = [] }: LayoutProps) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
@@ -43,11 +36,11 @@ const Layout: React.FC<LayoutProps> = ({ children = [] }: LayoutProps) => {
         <main>{children}</main>
       </div>
     </>
-  )
-}
+  );
+};
 
 interface LayoutProps {
-  children: Array<JSX.Element>
+  children: Array<JSX.Element>;
 }
 
-export default Layout
+export default Layout;

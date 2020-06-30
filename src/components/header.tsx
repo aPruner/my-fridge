@@ -1,14 +1,14 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
 // Material UI imports
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core"
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
 import {
   AppToolBarBackgroundColor,
   AppToolBarTextColor,
-} from "../assets/styles/colors"
+} from '../assets/styles/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,10 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
       textTransform: `none`,
     },
   })
-)
+);
 
-const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
-  const classes = useStyles()
+const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
+  const classes = useStyles();
   return (
     <header className={classes.root}>
       <AppBar position="static">
@@ -44,11 +44,11 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = "" }: HeaderProps) => {
         </Toolbar>
       </AppBar>
     </header>
-  )
-}
+  );
+};
 
 interface HeaderProps {
-  siteTitle: String
+  siteTitle: String;
 }
 
-export default Header
+export default Header;
