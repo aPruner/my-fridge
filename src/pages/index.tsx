@@ -1,9 +1,9 @@
-import React from "react"
-import { PageProps, Link } from "gatsby"
+import React from 'react';
+import { PageProps, Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import Image from '../components/image';
+import SEO from '../components/seo';
 
 const IndexPage: React.FC<PageProps> = () => (
   <Layout>
@@ -16,6 +16,6 @@ const IndexPage: React.FC<PageProps> = () => (
     </div>
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
