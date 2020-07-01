@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
+import SigninDialog from './signinDialog';
+
 import {
   AppToolBarBackgroundColor,
   AppToolBarTextColor,
@@ -31,6 +33,17 @@ const useStyles = makeStyles(() =>
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = (): void => {
+    setOpen(true);
+  };
+
+  const handleClose = (): void => {
+    setOpen(false);
+  };
+
   return (
     <header className={classes.root}>
       <AppBar position="static">
@@ -38,11 +51,16 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
           <Link to="/" className={classes.title}>
             <Typography variant="h6">{siteTitle}</Typography>
           </Link>
-          <Button className={classes.signinButton} color="inherit">
+          <Button
+            className={classes.signinButton}
+            color="inherit"
+            onClick={handleClickOpen}
+          >
             Sign in
           </Button>
         </Toolbar>
       </AppBar>
+      <SigninDialog open={open} onClose={handleClose} />
     </header>
   );
 };
