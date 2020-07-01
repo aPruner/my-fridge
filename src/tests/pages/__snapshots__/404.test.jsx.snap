@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render 404 page correctly 1`] = `
+exports[`should render NotFoundPage (404 page) correctly 1`] = `
 <Layout>
   <SEO
     title="404: Not found"

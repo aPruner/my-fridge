@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render index page correctly 1`] = `
+exports[`should render IndexPage correctly 1`] = `
 <Layout>
   <SEO
     title="Home"
