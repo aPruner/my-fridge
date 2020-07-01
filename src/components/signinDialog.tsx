@@ -7,7 +7,7 @@ import {
   List,
   Button,
 } from '@material-ui/core';
-import GoogleButton from 'react-google-button';
+import GoogleButton from 'react-google-button/dist/react-google-button';
 
 const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
   return (
