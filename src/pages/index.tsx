@@ -4,7 +4,6 @@ import { PageProps } from 'gatsby';
 import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
-import LoginForm from '../components/loginForm';
 
 const IndexPage: React.FC<PageProps> = () => (
   <Layout>
@@ -15,7 +14,6 @@ const IndexPage: React.FC<PageProps> = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <LoginForm></LoginForm>
   </Layout>
 );
 
