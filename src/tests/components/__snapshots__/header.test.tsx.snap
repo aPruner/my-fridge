@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header component correctly 1`] = `
+<header
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(AppBar))
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))
+      className="makeStyles-toolBar-2"
+    >
+      <mockConstructor
+        className="makeStyles-title-3"
+        to="/"
+      >
+        <WithStyles(ForwardRef(Typography))
+          variant="h6"
+        >
+          MyFridge
+        </WithStyles(ForwardRef(Typography))>
+      </mockConstructor>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-signinButton-4"
+        color="inherit"
+        onClick={[Function]}
+      >
+        Sign in
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+  <SigninDialog
+    onClose={[Function]}
+    open={false}
+  />
+</header>
+`;
