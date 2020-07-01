@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import Header from './header';
-import './layout.css';
+import '../assets/styles/layout.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
