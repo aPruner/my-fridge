@@ -26,6 +26,12 @@ module.exports = {
     // Too restrictive: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md
     'react/destructuring-assignment': 'off',
     'react/prop-types': 0,
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
     'no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true },
@@ -39,6 +45,7 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
+    '@typescript-eslint/no-var-requires': 0,
     'prettier/prettier': ['error'],
   },
 };
