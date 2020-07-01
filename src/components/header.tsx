@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 // Material UI imports
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
 import {
@@ -10,7 +10,7 @@ import {
   AppToolBarTextColor,
 } from '../assets/styles/colors';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
 };
 
 interface HeaderProps {
-  siteTitle: String;
+  siteTitle: string;
 }
 
 export default Header;

@@ -1,5 +1,5 @@
-const AppToolBarBackgroundColor: string = `#006600`
-const AppToolBarTextColor: string = `#ffffff`
+const AppToolBarBackgroundColor = '#006600';
+const AppToolBarTextColor = '#ffffff';
 // TODO: Add more colors here
 
-export { AppToolBarBackgroundColor, AppToolBarTextColor }
+export { AppToolBarBackgroundColor, AppToolBarTextColor };
