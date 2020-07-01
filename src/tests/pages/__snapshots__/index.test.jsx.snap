@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render index page correctly 1`] = `
+<Layout>
+  <SEO
+    title="Home"
+  />
+  <h1>
+    Hi people
+  </h1>
+  <p>
+    Welcome to your new Gatsby site.
+  </p>
+  <p>
+    Now go build something great.
+  </p>
+  <div
+    style={
+      Object {
+        "marginBottom": "1.45rem",
+        "maxWidth": "300px",
+      }
+    }
+  >
+    <Image />
+  </div>
+</Layout>
+`;
