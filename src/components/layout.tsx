@@ -2,12 +2,12 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 // Material UI imports
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 import Header from './header';
 import './layout.css';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     pageContainer: {
       margin: `0 auto`,

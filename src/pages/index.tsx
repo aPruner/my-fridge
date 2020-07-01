@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageProps, Link } from 'gatsby';
+import { PageProps } from 'gatsby';
 
 import Layout from '../components/layout';
 import Image from '../components/image';
@@ -14,7 +14,6 @@ const IndexPage: React.FC<PageProps> = () => (
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 );
 
