@@ -13,7 +13,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 
 import SigninDialog from './signinDialog';
-import Sidebarnav from './sidebarnav';
+import Navbar from './navbar';
 
 import {
   AppToolBarBackgroundColor,
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
   const [signinDialogOpen, setSigninDialogOpen] = React.useState(false);
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-  const handleClickOpenSigninDialog = (): void => {
+  const handleOpenSigninDialog = (): void => {
     setSigninDialogOpen(true);
   };
 
@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
     setSigninDialogOpen(false);
   };
 
-  const handleClickOpenNavbar = (): void => {
+  const handleOpenNavbar = (): void => {
     setNavbarOpen(true);
   };
 
@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
             edge="start"
             color="inherit"
             aria-label="menu"
-            onClick={handleClickOpenNavbar}
+            onClick={handleOpenNavbar}
           >
             <MenuIcon />
           </IconButton>
@@ -79,14 +79,14 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
           <Button
             className={classes.signinButton}
             color="inherit"
-            onClick={handleClickOpenSigninDialog}
+            onClick={handleOpenSigninDialog}
           >
             Sign in
           </Button>
         </Toolbar>
       </AppBar>
       <SigninDialog open={signinDialogOpen} onClose={handleCloseSignDialog} />
-      <Sidebarnav open={navbarOpen} onClose={handleCloseNavbar} />
+      <Navbar open={navbarOpen} onClose={handleCloseNavbar} />
     </header>
   );
 };
