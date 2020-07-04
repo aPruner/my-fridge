@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { connect } from 'react-redux';
 
 // Material UI imports
 import { Button, Typography } from '@material-ui/core';
 
-import { incrementCounter, decrementCounter } from '../state/actions/counter';
+import {
+  incrementCounter,
+  decrementCounter,
+  CounterAction,
+} from '../state/actions/counter';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const IndexPage: React.FC = ({ count, incCounter, decCounter }: any) => {
+const IndexPage: React.FC<IndexProps> = ({
+  count,
+  incCounter,
+  decCounter,
+}: IndexProps) => {
   return (
     <Layout>
       <SEO title="Home" />
@@ -20,12 +28,29 @@ const IndexPage: React.FC = ({ count, incCounter, decCounter }: any) => {
   );
 };
 
+export interface IndexStateMapping {
+  count: number;
+}
+
+export interface IndexDispatchMapping {
+  incCounter: React.MouseEventHandler<HTMLElement>;
+  decCounter: React.MouseEventHandler<HTMLElement>;
+}
+
+export interface IndexProps {
+  count: number;
+  incCounter: React.MouseEventHandler<HTMLElement>;
+  decCounter: React.MouseEventHandler<HTMLElement>;
+}
+
 // TODO: Fix TS types
-const mapStateToProps = (state: any): any => ({
+const mapStateToProps = (state: IndexStateMapping): IndexStateMapping => ({
   count: state.count,
 });
 
-const mapDispatchToProps = (dispatch: any): any => ({
+const mapDispatchToProps = (
+  dispatch: Dispatch<CounterAction>
+): IndexDispatchMapping => ({
   incCounter: () => dispatch(incrementCounter()),
   decCounter: () => dispatch(decrementCounter()),
 });
