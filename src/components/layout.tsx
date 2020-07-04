@@ -11,8 +11,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     pageContainer: {
       margin: `0 auto`,
-      maxWidth: 960,
-      padding: `0 1.0875rem 1.45rem`,
+      maxWidth: 1200,
+      padding: `50px 1.0875rem 1.45rem`,
     },
   })
 );
