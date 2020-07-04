@@ -43,7 +43,6 @@ export interface IndexProps {
   decCounter: React.MouseEventHandler<HTMLElement>;
 }
 
-// TODO: Fix TS types
 const mapStateToProps = (state: IndexStateMapping): IndexStateMapping => ({
   count: state.count,
 });
