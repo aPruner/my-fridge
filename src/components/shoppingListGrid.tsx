@@ -29,6 +29,16 @@ const ShoppingListGrid: React.FC = () => {
     { shoppingListName: 'Shopping List 4' },
     { shoppingListName: 'Shopping List 5' },
     { shoppingListName: 'Shopping List 6' },
+    { shoppingListName: 'Shopping List 7' },
+    { shoppingListName: 'Shopping List 8' },
+    { shoppingListName: 'Shopping List 9' },
+    { shoppingListName: 'Shopping List 10' },
+    { shoppingListName: 'Shopping List 11' },
+    { shoppingListName: 'Shopping List 12' },
+    { shoppingListName: 'Shopping List 13' },
+    { shoppingListName: 'Shopping List 14' },
+    { shoppingListName: 'Shopping List 15' },
+    { shoppingListName: 'Shopping List 16' },
   ];
   return (
     <Grid container direction="row" justify="space-evenly" alignItems="center">
@@ -43,6 +53,9 @@ const ShoppingListGrid: React.FC = () => {
             <CardActions>
               <Button size="small" color="primary">
                 Share
+              </Button>
+              <Button size="small" color="primary">
+                Delete
               </Button>
             </CardActions>
           </Card>
