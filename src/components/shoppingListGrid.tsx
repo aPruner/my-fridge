@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 
 const ShoppingListGrid: React.FC = () => {
   const classes = useStyles();
+  // TODO: This is just mock data with a name, add real data later
   const shoppingCards = [
     { shoppingListName: 'Shopping List 1' },
     { shoppingListName: 'Shopping List 2' },
@@ -54,7 +55,7 @@ const ShoppingListGrid: React.FC = () => {
               <Button size="small" color="primary">
                 Share
               </Button>
-              <Button size="small" color="primary">
+              <Button size="small" color="secondary">
                 Delete
               </Button>
             </CardActions>
