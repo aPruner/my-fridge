@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Material UI imports
 import {
   TextField,
   Dialog,
@@ -7,9 +9,22 @@ import {
   List,
   Button,
 } from '@material-ui/core';
+
 import GoogleButton from 'react-google-button/dist/react-google-button';
 
+import { signinWithGoogle } from '../utils/services/firebaseAuthService';
+
 const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
+  const signinWithGoogleHandler = (): void => {
+    signinWithGoogle()
+      .then((credential) => {
+        console.log(credential);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={open}>
       <DialogTitle className="signInTitle" id="simple-dialog-title">
@@ -28,7 +43,7 @@ const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
           </Button>
         </ListItem>
         <ListItem>
-          <GoogleButton />
+          <GoogleButton onClick={signinWithGoogleHandler} />
         </ListItem>
       </List>
     </Dialog>

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 // Material UI imports
 import { Button, Typography } from '@material-ui/core';
 
-import { initFirebaseAuth } from '../utils/firebaseAuthService';
-
 import {
   incrementCounter,
   decrementCounter,
@@ -20,8 +18,6 @@ const IndexPage: React.FC<IndexProps> = ({
   incCounter,
   decCounter,
 }: IndexProps) => {
-  initFirebaseAuth();
-
   return (
     <Layout>
       <SEO title="Home" />

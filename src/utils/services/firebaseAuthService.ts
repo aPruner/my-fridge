@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import firebase from 'firebase';
 
 function getFirebaseConfig(): FirebaseConfig {
   return {
@@ -13,9 +14,28 @@ function getFirebaseConfig(): FirebaseConfig {
   };
 }
 
-export function initFirebaseAuth(): firebase.app.App {
+function initFirebaseAuth(): firebase.app.App {
   const config = getFirebaseConfig();
   return initializeApp(config);
+}
+
+export async function signinWithGoogle(): Promise<
+  firebase.auth.UserCredential
+> {
+  // Initialize the firebase app and do the login
+  const app = initFirebaseAuth();
+  try {
+    return await app
+      .auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  } catch (error) {
+    return error;
+  }
+}
+
+export function signinWithUsernamePassword(): void {
+  // TODO: Need to enable username/password sign up and signin in firebase console before writing this function
+  const auth = initFirebaseAuth();
 }
 
 export interface FirebaseConfig {
