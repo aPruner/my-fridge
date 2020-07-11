@@ -10,6 +10,8 @@ import {
   Grid,
 } from '@material-ui/core';
 
+import SingleShoppingList from './singleShoppingList';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 350,
@@ -21,6 +23,16 @@ const useStyles = makeStyles({
 });
 
 const ShoppingListGrid: React.FC = () => {
+  const [shoppingListDialogOpen, setShoppingListDialogOpen] = React.useState(
+    false
+  );
+  const handleOpenShoppingListDialog = (): void => {
+    setShoppingListDialogOpen(true);
+  };
+
+  const handleCloseShoppinglistDialog = (): void => {
+    setShoppingListDialogOpen(false);
+  };
   const classes = useStyles();
   // TODO: This is just mock data with a name, add real data later
   const shoppingCards = [
@@ -42,27 +54,41 @@ const ShoppingListGrid: React.FC = () => {
     { shoppingListName: 'Shopping List 16' },
   ];
   return (
-    <Grid container direction="row" justify="space-evenly" alignItems="center">
-      {shoppingCards.map((shoppingCard) => {
-        return (
-          <Card className={classes.root}>
-            <CardActionArea className={classes.cardActionArea}>
-              <CardContent>
-                <Typography>{shoppingCard.shoppingListName}</Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="secondary">
-                Delete
-              </Button>
-            </CardActions>
-          </Card>
-        );
-      })}
-    </Grid>
+    <>
+      <Grid
+        container
+        direction="row"
+        justify="space-evenly"
+        alignItems="center"
+      >
+        {shoppingCards.map((shoppingCard) => {
+          return (
+            <Card className={classes.root}>
+              <CardActionArea
+                className={classes.cardActionArea}
+                onClick={handleOpenShoppingListDialog}
+              >
+                <CardContent>
+                  <Typography>{shoppingCard.shoppingListName}</Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Share
+                </Button>
+                <Button size="small" color="secondary">
+                  Delete
+                </Button>
+              </CardActions>
+            </Card>
+          );
+        })}
+      </Grid>
+      <SingleShoppingList
+        open={shoppingListDialogOpen}
+        onClose={handleCloseShoppinglistDialog}
+      />
+    </>
   );
 };
 
