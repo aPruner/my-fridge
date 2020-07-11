@@ -38,6 +38,15 @@ export function signinWithUsernamePassword(): void {
   const auth = initFirebaseAuth();
 }
 
+export async function signOut(): Promise<void> {
+  const app = initFirebaseAuth();
+  try {
+    return await app.auth().signOut();
+  } catch (error) {
+    return error;
+  }
+}
+
 export interface FirebaseConfig {
   apiKey?: string;
   authDomain?: string;
