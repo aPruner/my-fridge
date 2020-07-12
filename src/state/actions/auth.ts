@@ -1,5 +1,7 @@
 import { Dispatch } from 'react';
 
+import { ThunkAction } from 'redux-thunk';
+
 import {
   signinWithGoogle,
   signOut,
@@ -7,8 +9,8 @@ import {
 
 // LOGIN:
 
-// Login action dispatcher
-export function loginActionDispatcher(withGoogle: boolean): LoginDispatcher {
+// Login async action
+export function loginAction(withGoogle: boolean): LoginAsyncAction {
   return (dispatch: Dispatch<LoginAction>): void => {
     dispatch(loginRequest());
     if (withGoogle) {
@@ -55,7 +57,7 @@ export function loginFailure(): LoginFailure {
 }
 
 // Action TS types
-export interface LoginDispatcher {
+export interface LoginAsyncAction {
   (dispatch: Dispatch<LoginAction>): void;
 }
 
@@ -76,8 +78,8 @@ export type LoginAction = LoginRequest | LoginSuccess | LoginFailure;
 
 // LOGOUT:
 
-// Logout action dispatcher
-export function logoutActionDispatcher(): LogoutDispatcher {
+// Logout async action
+export function logoutAction(): LogoutAsyncAction {
   return (dispatch: Dispatch<LogoutAction>): void => {
     dispatch(logoutRequest());
     signOut()
@@ -117,7 +119,7 @@ export function logoutFailure(): LogoutFailure {
 }
 
 // Action TS types
-export interface LogoutDispatcher {
+export interface LogoutAsyncAction {
   (dispatch: Dispatch<LogoutAction>): void;
 }
 
@@ -134,3 +136,8 @@ export interface LogoutFailure {
 }
 
 export type LogoutAction = LogoutRequest | LogoutSuccess | LogoutFailure;
+export type AuthAction =
+  | LoginAction
+  | LogoutAction
+  | LogoutAsyncAction
+  | LogoutAsyncAction;
