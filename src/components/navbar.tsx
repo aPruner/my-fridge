@@ -28,17 +28,17 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
     {
       pageName: 'Home',
       pageIcon: <HomeIcon fontSize="large" />,
-      link: '/',
+      endpoint: '/',
     },
     {
       pageName: 'Shopping Lists',
       pageIcon: <ShoppingCartIcon fontSize="large" />,
-      link: '/shoppingLists/',
+      endpoint: '/shoppingLists/',
     },
     {
       pageName: 'Fridge',
       pageIcon: <FridgeIcon fontSize="large" />,
-      link: '/fridge/',
+      endpoint: '/fridge/',
     },
   ];
 
@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
       <List>
         {navItems.map((navItem) => {
           return (
-            <ListItem button onClick={() => navigation(navItem.link)}>
+            <ListItem button onClick={() => navigation(navItem.endpoint)}>
               <ListItemIcon>{navItem.pageIcon}</ListItemIcon>
               <ListItemText>{navItem.pageName}</ListItemText>
             </ListItem>
