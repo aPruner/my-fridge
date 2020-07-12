@@ -41,6 +41,13 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-layout',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        path: 'src/components/layout.tsx',
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
     },
   ];
 
-  const navigation = (endpoint: string) => {
+  const navigation = (endpoint: string): void => {
     navigate(endpoint);
   };
 
