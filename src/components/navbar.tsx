@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 
 // Material UI imports
 import { createStyles, makeStyles } from '@material-ui/core/styles';
@@ -20,22 +21,30 @@ const useStyles = makeStyles(() =>
     paper: { width: '300px' },
   })
 );
+
 const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
   const classes = useStyles();
   const navItems = [
     {
       pageName: 'Home',
       pageIcon: <HomeIcon fontSize="large" />,
+      link: '/',
     },
     {
       pageName: 'Shopping Lists',
       pageIcon: <ShoppingCartIcon fontSize="large" />,
+      link: '/shoppingLists/',
     },
     {
       pageName: 'Fridge',
       pageIcon: <FridgeIcon fontSize="large" />,
+      link: '/fridge/',
     },
   ];
+
+  const navigation = (endpoint: string) => {
+    navigate(endpoint);
+  };
 
   return (
     <Drawer
@@ -47,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
       <List>
         {navItems.map((navItem) => {
           return (
-            <ListItem button>
+            <ListItem button onClick={() => navigation(navItem.link)}>
               <ListItemIcon>{navItem.pageIcon}</ListItemIcon>
               <ListItemText>{navItem.pageName}</ListItemText>
             </ListItem>
