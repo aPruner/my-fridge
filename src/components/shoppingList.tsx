@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Material UI imports
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Checkbox,
@@ -10,6 +12,7 @@ import {
   ListItemText,
 } from '@material-ui/core';
 
+// TODO make styles responsive
 const useStyles = makeStyles({
   root: {
     height: 800,
@@ -17,10 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SingleShoppingList: React.FC<SingleShoppingList> = ({
-  open,
-  onClose,
-}) => {
+const ShoppingList: React.FC<ShoppingListProps> = ({ open, onClose }) => {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([0]);
   const handleToggle = (value: number) => () => {
@@ -35,6 +35,7 @@ const SingleShoppingList: React.FC<SingleShoppingList> = ({
 
     setChecked(newChecked);
   };
+
   const shoppingListItems = [
     { item: 'item 1', id: 1 },
     { item: 'item 2', id: 2 },
@@ -46,6 +47,10 @@ const SingleShoppingList: React.FC<SingleShoppingList> = ({
     { item: 'item 8', id: 8 },
     { item: 'item 9', id: 9 },
   ];
+
+  const isChecked = (itemId: number): boolean => {
+    return checked.indexOf(itemId) !== -1;
+  };
 
   return (
     <Dialog
@@ -70,7 +75,7 @@ const SingleShoppingList: React.FC<SingleShoppingList> = ({
               <ListItemIcon>
                 <Checkbox
                   edge="start"
-                  checked={checked.indexOf(shoppingListItem.id) !== -1}
+                  checked={isChecked(shoppingListItem.id)}
                   tabIndex={-1}
                   disableRipple
                   inputProps={{
@@ -87,9 +92,9 @@ const SingleShoppingList: React.FC<SingleShoppingList> = ({
   );
 };
 
-export interface SingleShoppingList {
+export interface ShoppingListProps {
   open: boolean;
   onClose: () => void;
 }
 
-export default SingleShoppingList;
+export default ShoppingList;

@@ -10,7 +10,7 @@ import {
   Grid,
 } from '@material-ui/core';
 
-import SingleShoppingList from './singleShoppingList';
+import ShoppingList from './shoppingList';
 
 const useStyles = makeStyles({
   root: {
@@ -84,7 +84,7 @@ const ShoppingListGrid: React.FC = () => {
           );
         })}
       </Grid>
-      <SingleShoppingList
+      <ShoppingList
         open={shoppingListDialogOpen}
         onClose={handleCloseShoppinglistDialog}
       />

@@ -47,7 +47,5 @@ module.exports = {
     ],
     '@typescript-eslint/no-var-requires': 0,
     'prettier/prettier': ['error'],
-    // used to fix error  Using exported name as identifier for default export
-    'import/no-named-as-default': 0,
   },
 };

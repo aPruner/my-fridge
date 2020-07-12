@@ -23,12 +23,18 @@ const useStyles = makeStyles(() =>
 const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
   const classes = useStyles();
   const navItems = [
-    { pageName: 'Home', pageIcon: <HomeIcon fontSize="large" /> },
+    {
+      pageName: 'Home',
+      pageIcon: <HomeIcon fontSize="large" />,
+    },
     {
       pageName: 'Shopping Lists',
       pageIcon: <ShoppingCartIcon fontSize="large" />,
     },
-    { pageName: 'Fridge', pageIcon: <FridgeIcon fontSize="large" /> },
+    {
+      pageName: 'Fridge',
+      pageIcon: <FridgeIcon fontSize="large" />,
+    },
   ];
 
   return (
