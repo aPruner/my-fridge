@@ -1,11 +1,6 @@
 import { Dispatch } from 'react';
 
-import { ThunkAction } from 'redux-thunk';
-
-import {
-  signinWithGoogle,
-  signOut,
-} from '../../utils/services/firebaseAuthService';
+import { signinWithGoogle, signOut } from '../../utils/services/authService';
 
 // LOGIN:
 
