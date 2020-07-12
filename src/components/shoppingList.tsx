@@ -18,6 +18,9 @@ const useStyles = makeStyles({
     height: 800,
     width: 2000,
   },
+  checkbox: {
+    marginLeft: 0,
+  },
 });
 
 const ShoppingList: React.FC<ShoppingListProps> = ({ open, onClose }) => {
@@ -74,6 +77,7 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ open, onClose }) => {
             >
               <ListItemIcon>
                 <Checkbox
+                  className={classes.checkbox}
                   edge="start"
                   checked={isChecked(shoppingListItem.id)}
                   tabIndex={-1}
