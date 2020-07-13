@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Dispatch, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'gatsby';
 
 // Material UI imports
@@ -14,6 +15,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import SigninDialog from './signinDialog';
 import Navbar from './navbar';
+
+import { loginAction, logoutAction } from '../state/actions/auth';
 
 import {
   AppToolBarBackgroundColor,
@@ -39,7 +42,12 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({
+  siteTitle = '',
+  reduxProps,
+  signinAction,
+  signoutAction,
+}: HeaderProps) => {
   const classes = useStyles();
 
   const [signinDialogOpen, setSigninDialogOpen] = React.useState(false);
@@ -85,14 +93,46 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = '' }: HeaderProps) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <SigninDialog open={signinDialogOpen} onClose={handleCloseSignDialog} />
+      <SigninDialog
+        open={signinDialogOpen}
+        onClose={handleCloseSignDialog}
+        onGoogleLoginButtonClick={() => signinAction(true)}
+      />
       <Navbar open={navbarOpen} onClose={handleCloseNavbar} />
     </header>
   );
 };
 
-interface HeaderProps {
+export interface HeaderProps {
   siteTitle: string;
+  reduxProps: HeaderStateMapping;
+  signinAction: (withGoogle: boolean) => void;
+  signoutAction: () => void;
 }
 
-export default Header;
+export interface HeaderStateMapping {
+  firebaseApp: firebase.app.App;
+  googleAuthProvider: firebase.auth.GoogleAuthProvider;
+  user: any;
+}
+
+export interface HeaderDispatchMapping {
+  signinAction: (withGoogle: boolean) => void;
+  signoutAction: () => void;
+}
+
+const mapStateToProps = (state: HeaderStateMapping): HeaderStateMapping => ({
+  firebaseApp: state.firebaseApp,
+  googleAuthProvider: state.googleAuthProvider,
+  user: state.user,
+});
+
+const mapDispatchToProps = (
+  // TODO: Fix this any ts type
+  dispatch: Dispatch<any>
+): HeaderDispatchMapping => ({
+  signinAction: (withGoogle: boolean) => dispatch(loginAction(withGoogle)),
+  signoutAction: () => dispatch(logoutAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

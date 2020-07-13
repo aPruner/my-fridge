@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
+
+// Material UI imports
 import {
   TextField,
   Dialog,
@@ -7,9 +9,14 @@ import {
   List,
   Button,
 } from '@material-ui/core';
+
 import GoogleButton from 'react-google-button/dist/react-google-button';
 
-const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
+const SigninDialog: React.FC<SigninDialogProps> = ({
+  open,
+  onClose,
+  onGoogleLoginButtonClick,
+}) => {
   return (
     <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={open}>
       <DialogTitle className="signInTitle" id="simple-dialog-title">
@@ -28,7 +35,7 @@ const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
           </Button>
         </ListItem>
         <ListItem>
-          <GoogleButton />
+          <GoogleButton onClick={onGoogleLoginButtonClick} />
         </ListItem>
       </List>
     </Dialog>
@@ -38,6 +45,7 @@ const SigninDialog: React.FC<SigninDialogProps> = ({ open, onClose }) => {
 export interface SigninDialogProps {
   open: boolean;
   onClose: () => void;
+  onGoogleLoginButtonClick: () => void;
 }
 
 export default SigninDialog;

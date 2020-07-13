@@ -7,6 +7,8 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Header from './header';
 import '../assets/styles/layout.css';
 
+import { isBrowser } from '../utils/browser';
+
 const useStyles = makeStyles(() =>
   createStyles({
     pageContainer: {
@@ -31,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children = [] }: LayoutProps) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {isBrowser() && <Header siteTitle={data.site.siteMetadata.title} />}
       <div className={classes.pageContainer}>
         <main>{children}</main>
       </div>

@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
     },
   ];
 
-  const navigation = (endpoint: string) => {
+  const navigation = (endpoint: string): void => {
     navigate(endpoint);
   };
 
@@ -56,7 +56,11 @@ const Navbar: React.FC<NavbarProps> = ({ open, onClose }) => {
       <List>
         {navItems.map((navItem) => {
           return (
-            <ListItem button onClick={() => navigation(navItem.endpoint)}>
+            <ListItem
+              button
+              key={navItem.pageName}
+              onClick={() => navigation(navItem.endpoint)}
+            >
               <ListItemIcon>{navItem.pageIcon}</ListItemIcon>
               <ListItemText>{navItem.pageName}</ListItemText>
             </ListItem>

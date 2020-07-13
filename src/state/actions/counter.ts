@@ -1,5 +1,3 @@
-import { Action } from 'redux';
-
 // Action type string constants
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
@@ -11,7 +9,7 @@ export function incrementCounter(): CounterAction {
   };
 }
 
-export function decrementCounter(): Action {
+export function decrementCounter(): CounterAction {
   return {
     type: DECREMENT_COUNTER,
   };
