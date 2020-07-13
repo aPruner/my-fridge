@@ -1,4 +1,5 @@
-import { Action } from 'redux';
+import firebase from '../../utils/services/firebase';
+import { isBrowser } from '../../utils/browser';
 
 import {
   LOGIN_REQUEST,
@@ -10,21 +11,23 @@ import {
 } from '../actions/auth';
 
 const initialState = {
-  isLoggedIn: false,
+  firebaseApp: isBrowser() ? firebase : {},
+  googleAuthProvider: isBrowser() ? new firebase.auth.GoogleAuthProvider() : {},
+  user: {},
 };
 
-const authReducer = (state = initialState, action: Action): typeof state => {
+const authReducer = (state = initialState, action: any): typeof state => {
   switch (action.type) {
     case LOGIN_REQUEST:
       return { ...state };
     case LOGIN_SUCCESS:
-      return { ...state, isLoggedIn: true };
+      return { ...state, user: action.credential.user };
     case LOGIN_FAILURE:
       return { ...state };
     case LOGOUT_REQUEST:
       return { ...state };
     case LOGOUT_SUCCESS:
-      return { ...state, isLoggedIn: false };
+      return { ...state };
     case LOGOUT_FAILURE:
       return { ...state };
     default:

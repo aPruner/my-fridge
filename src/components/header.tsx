@@ -1,4 +1,4 @@
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'gatsby';
 
@@ -44,6 +44,7 @@ const useStyles = makeStyles(() =>
 
 const Header: React.FC<HeaderProps> = ({
   siteTitle = '',
+  reduxProps,
   signinAction,
   signoutAction,
 }: HeaderProps) => {
@@ -104,13 +105,15 @@ const Header: React.FC<HeaderProps> = ({
 
 export interface HeaderProps {
   siteTitle: string;
-  isLoggedIn: boolean;
+  reduxProps: HeaderStateMapping;
   signinAction: (withGoogle: boolean) => void;
   signoutAction: () => void;
 }
 
 export interface HeaderStateMapping {
-  isLoggedIn: boolean;
+  firebaseApp: firebase.app.App;
+  googleAuthProvider: firebase.auth.GoogleAuthProvider;
+  user: any;
 }
 
 export interface HeaderDispatchMapping {
@@ -119,7 +122,9 @@ export interface HeaderDispatchMapping {
 }
 
 const mapStateToProps = (state: HeaderStateMapping): HeaderStateMapping => ({
-  isLoggedIn: state.isLoggedIn,
+  firebaseApp: state.firebaseApp,
+  googleAuthProvider: state.googleAuthProvider,
+  user: state.user,
 });
 
 const mapDispatchToProps = (

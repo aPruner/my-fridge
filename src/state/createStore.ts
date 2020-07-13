@@ -9,16 +9,18 @@ import thunkMiddleware from 'redux-thunk';
 import counterReducer from './reducers/counter';
 import authReducer from './reducers/auth';
 
-const loggerMiddleware = createLogger();
+const createStore = (): Store => {
+  const loggerMiddleware = createLogger();
 
-const rootReducer = combineReducers({
-  counterReducer,
-  authReducer,
-});
+  const rootReducer = combineReducers({
+    counterReducer,
+    authReducer,
+  });
 
-const createStore = (): Store =>
-  reduxCreateStore(
+  return reduxCreateStore(
     rootReducer,
     applyMiddleware(thunkMiddleware, loggerMiddleware)
   );
+};
+
 export default createStore;
